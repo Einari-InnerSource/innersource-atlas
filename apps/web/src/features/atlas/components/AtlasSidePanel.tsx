@@ -1,65 +1,95 @@
 import { Box, Divider, Typography } from "@mui/material";
-import type { AtlasGraph, AtlasNode } from "@innersource-atlas/types";
+import type {
+  AtlasEdge,
+  AtlasGraph,
+  AtlasNode,
+} from "@innersource-atlas/types";
+import type { RepoOwnership } from "../adapters/create-owner-map";
+
+function parseRepoFullNameFromRepoId(repoId: string): string | null {
+  if (!repoId.startsWith("repo:")) return null;
+  const fullName = repoId.slice("repo:".length);
+  // should be "owner/name"
+  return fullName.includes("/") ? fullName : null;
+}
 
 export function AtlasSidePanel({
   node,
   graph,
+  ownerMap,
 }: {
   node: AtlasNode | null;
   graph: AtlasGraph;
+  ownerMap: Record<string, RepoOwnership>;
 }) {
-  const title =
-    node?.type === "team"
-      ? "Team"
-      : node?.type === "repo"
-        ? "Repository"
-        : "Selection";
-
-  const subtitle =
-    node?.type === "team"
-      ? node.label
-      : node?.type === "repo"
-        ? node.label
-        : "Select a team or repo in the atlas.";
-
-  // For teams: count outgoing edges from this team node
   const ownsCount =
     node?.type === "team"
-      ? graph.edges.filter((e) => e.source === node.id).length
+      ? graph.edges.filter((e: AtlasEdge) => e.source === node.id).length
       : null;
 
-  // For repos: parse owner/name from id convention repo:owner/name
-  const repoRef =
-    node?.type === "repo"
-      ? (() => {
-          const raw = node.id.startsWith("repo:") ? node.id.slice("repo:".length) : node.id;
-          const [owner, name] = raw.split("/");
-          return owner && name ? { owner, name } : null;
-        })()
-      : null;
+  const ownership = node?.type === "repo" ? ownerMap[node.id] : null;
+
+  const hasOwners =
+    ownership && (ownership.teams.length > 0 || ownership.users.length > 0);
 
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" sx={{ mb: 1 }}>
-        {title}
+        {node?.type === "team"
+          ? "Team"
+          : node?.type === "repo"
+            ? "Repository"
+            : "Selection"}
       </Typography>
 
       <Typography variant="body2" color="text.secondary">
-        {subtitle}
+        {node ? node.label : "Select a team or repo in the atlas."}
       </Typography>
 
       <Divider sx={{ my: 2 }} />
 
-      <Typography variant="subtitle2">Ownership</Typography>
+      <Typography variant="subtitle2">CODEOWNERS</Typography>
 
       {node?.type === "team" ? (
         <Typography variant="body2" color="text.secondary">
           Owns {ownsCount} repos
         </Typography>
       ) : node?.type === "repo" ? (
-        <Typography variant="body2" color="text.secondary">
-          {repoRef ? `Owner: ${repoRef.owner}` : "—"}
-        </Typography>
+        ownership ? (
+          <Box sx={{ mt: 1 }}>
+            <Typography variant="body2" color="text.secondary">
+              Source: {ownership.source}
+            </Typography>
+
+            <Typography variant="body2" sx={{ mt: 1 }}>
+              Teams
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {ownership.teams.length
+                ? ownership.teams.map((t) => `@${t}`).join(", ")
+                : "—"}
+            </Typography>
+
+            <Typography variant="body2" sx={{ mt: 1 }}>
+              Users
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {ownership.users.length
+                ? ownership.users.map((u) => `@${u}`).join(", ")
+                : "—"}
+            </Typography>
+
+            {!hasOwners && (
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                No owners found in CODEOWNERS.
+              </Typography>
+            )}
+          </Box>
+        ) : (
+          <Typography variant="body2" color="text.secondary">
+            No CODEOWNERS data for this repo.
+          </Typography>
+        )
       ) : (
         <Typography variant="body2" color="text.secondary">
           —
