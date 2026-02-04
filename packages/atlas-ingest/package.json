@@ -13,6 +13,9 @@
   "engines": {
     "node": ">=18"
   },
+  "dependencies": {
+    "@innersource-atlas/types": "workspace:^"
+  },
   "devDependencies": {
     "dotenv": "^17.2.3",
     "tsx": "^4.21.0",

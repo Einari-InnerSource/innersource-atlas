@@ -1,5 +1,5 @@
 import { parseCodeowners } from "./ownership/parse-codeowners";
-import type { RepoProfile } from "./types/repo-profile";
+import type { RepoProfile } from "@innersource-atlas/types";
 import type { RepoTextFiles } from "./github/content";
 
 export function buildRepoProfile(args: {
