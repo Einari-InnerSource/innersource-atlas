@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Box } from "@mui/material";
 import { AtlasGraph } from "./AtlasGraph";
 import { AtlasSidePanel } from "./AtlasSidePanel";
@@ -15,18 +15,21 @@ export function AtlasShell() {
 
   const profiles = repoProfiles as RepoProfile[];
 
-  const graph = useMemo(() => buildOwnershipGraph(profiles), [profiles]);
-
-  const ownerMap = useMemo(() => createOwnerMap(profiles), [profiles]);
+  const graph = buildOwnershipGraph(profiles);
+  const ownerMap = createOwnerMap(profiles);
 
   const selectedNode = selectedId
-    ? graph.nodes.find((n) => n.id === selectedId) ?? null
+    ? (graph.nodes.find((n) => n.id === selectedId) ?? null)
     : null;
 
   return (
     <Box sx={{ display: "flex", height: "100%", minHeight: 0 }}>
       <Box sx={{ flex: 1, minWidth: 0 }}>
-        <AtlasGraph graph={graph} selectedId={selectedId} onSelect={setSelectedId} />
+        <AtlasGraph
+          graph={graph}
+          selectedId={selectedId}
+          onSelect={setSelectedId}
+        />
       </Box>
 
       <Box
