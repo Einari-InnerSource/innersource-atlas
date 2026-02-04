@@ -6,13 +6,6 @@ import type {
 } from "@innersource-atlas/types";
 import type { RepoOwnership } from "../adapters/create-owner-map";
 
-function parseRepoFullNameFromRepoId(repoId: string): string | null {
-  if (!repoId.startsWith("repo:")) return null;
-  const fullName = repoId.slice("repo:".length);
-  // should be "owner/name"
-  return fullName.includes("/") ? fullName : null;
-}
-
 export function AtlasSidePanel({
   node,
   graph,
