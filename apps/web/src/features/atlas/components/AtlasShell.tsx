@@ -1,27 +1,37 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Box } from "@mui/material";
 import { AtlasGraph } from "./AtlasGraph";
 import { AtlasSidePanel } from "./AtlasSidePanel";
-import type { AtlasNode } from "../atlasTypes";
-import { SEED_NODES } from "../seed";
 
+import repoProfiles from "../mock/repo-profiles.json";
+import type { RepoProfile } from "@innersource-atlas/types";
+
+import { buildOwnershipGraph } from "../adapters/build-ownership-graph";
+import type { AtlasNode } from "@innersource-atlas/types";
 const RIGHT_PANEL_WIDTH = 380;
 
 export function AtlasShell() {
-  const [selected, setSelected] = useState<AtlasNode | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  const graph = useMemo(
+    () => buildOwnershipGraph(repoProfiles as RepoProfile[]),
+    [],
+  );
+
+  const selectedNode: AtlasNode | null = selectedId
+    ? (graph.nodes.find((n) => n.id === selectedId) ?? null)
+    : null;
 
   return (
     <Box sx={{ display: "flex", height: "100%", minHeight: 0 }}>
-      {/* Graph area */}
       <Box sx={{ flex: 1, minWidth: 0 }}>
         <AtlasGraph
-          nodes={SEED_NODES}
-          selected={selected}
-          onSelect={setSelected}
+          graph={graph}
+          selectedId={selectedId}
+          onSelect={setSelectedId}
         />
       </Box>
 
-      {/* Side panel (no overlay, no fixed positioning) */}
       <Box
         sx={{
           width: RIGHT_PANEL_WIDTH,
@@ -33,7 +43,7 @@ export function AtlasShell() {
           overflow: "auto",
         }}
       >
-        <AtlasSidePanel node={selected} />
+        <AtlasSidePanel node={selectedNode} graph={graph} />
       </Box>
     </Box>
   );

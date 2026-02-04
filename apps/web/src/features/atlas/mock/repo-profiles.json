@@ -1,0 +1,418 @@
+[
+  {
+    "owner": "backstage",
+    "name": "mkdocs-monorepo-plugin",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/techdocs-core"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "backstage",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": [
+        "backstage/maintainers",
+        "backstage/reviewers",
+        "backstage/operations-maintainers",
+        "backstage/documentation-maintainers",
+        "backstage/notifications-maintainers",
+        "backstage/search-maintainers",
+        "backstage/auth-maintainers",
+        "backstage/framework-maintainers",
+        "backstage/tooling-maintainers",
+        "backstage/design-system-maintainers",
+        "backstage/techdocs-maintainers",
+        "backstage/permission-maintainers",
+        "backstage/openapi-tooling-maintainers",
+        "backstage/catalog-maintainers",
+        "backstage/sharks",
+        "backstage/sda-se-reviewers",
+        "backstage/events-maintainers",
+        "backstage/home-maintainers",
+        "backstage/kubernetes-maintainers",
+        "backstage/scaffolder-maintainers",
+        "backstage/auditor-maintainers"
+      ],
+      "users": ["backstage-service", "pjungermann", "awanlin"],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "mkdocs-techdocs-core",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/techdocs-maintainers"],
+      "users": ["awanlin"],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "demo",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/operations-maintainers"],
+      "users": ["MihaiTabara"],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "techdocs-cli",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/techdocs-core"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "techdocs-container",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/techdocs-core"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "community",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": [
+        "backstage/community-plugins-maintainers",
+        "backstage/reviewers"
+      ],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "software-templates",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/reviewers"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "config-schema-viewer",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "catman",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "test-demo",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "upgrade-helper",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/operations-maintainers"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "upgrade-helper-diff",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "versions",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "tempo",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "backend-system-exploration",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "changesets-action",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "actions",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/reviewers", "backstage/techdocs"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "charts",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/helm-charts"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "archive",
+    "hasReadme": false,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "frontend-system-exploration",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "backstage-deploy",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": ["backstage/sharks"],
+      "users": [],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "community-plugins",
+    "hasReadme": true,
+    "hasCodeowners": true,
+    "ownership": {
+      "teams": [
+        "backstage/community-plugins-maintainers",
+        "backstage/sda-se-reviewers",
+        "backstage/silver-lining"
+      ],
+      "users": [
+        "backstage-service",
+        "04kash",
+        "AndrienkoAleksandr",
+        "dzemanov",
+        "lholmquist",
+        "PatAKnight",
+        "djanickova",
+        "christoph-jerolimov",
+        "ciiay",
+        "debsmita1",
+        "divyanshiGupta",
+        "its-mitesh-kumar",
+        "logonoff",
+        "lokanandaprabhu",
+        "rohitkrai03",
+        "jrichter1",
+        "HusneShabbir",
+        "karthikjeeyar",
+        "sachaudh",
+        "alwayshooin",
+        "dvail",
+        "maknop",
+        "kuangp",
+        "sbraicu",
+        "sriaradhyula",
+        "subbaksh",
+        "suwhang-cisco",
+        "itainathaniel",
+        "deshmukhmayur",
+        "yashoswalyo",
+        "riginoommen",
+        "jmezach",
+        "kurtaking",
+        "gaelgoth",
+        "hetsaliya-crestdata",
+        "zuberc-cds",
+        "IgalKreich",
+        "shaim-apiiro",
+        "caugello",
+        "cryptorodeo",
+        "Eswaraiahsapram",
+        "awanlin",
+        "sarabadu",
+        "deepan10",
+        "mbruhin",
+        "smymoon",
+        "hopehadfield",
+        "alde",
+        "fjudith",
+        "joelml",
+        "esw-afabiano",
+        "scottguymer",
+        "henrikedegrd",
+        "fleveillee",
+        "erikengervall",
+        "minkimcello",
+        "taras",
+        "gregorytalita",
+        "BethGriggs",
+        "andrewthauer",
+        "aljesusg",
+        "josunect",
+        "jshaughn",
+        "grantila",
+        "Lucifergene",
+        "NormanWenzelWSS",
+        "rupalvihol",
+        "ibolton336",
+        "sjd78",
+        "djzager",
+        "pranavgaikwad",
+        "shawn-hurley",
+        "jessicajhee",
+        "xantier",
+        "punkle",
+        "maicaballangan",
+        "philippeckelintive",
+        "johannes-kirchner"
+      ],
+      "source": "codeowners"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "github-sync-helper-api",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "github-sync-helper-extension",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "docs-ui",
+    "hasReadme": false,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "markdown-inline-graphviz",
+    "hasReadme": true,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  },
+  {
+    "owner": "backstage",
+    "name": "canon-redirect",
+    "hasReadme": false,
+    "hasCodeowners": false,
+    "ownership": {
+      "teams": [],
+      "users": [],
+      "source": "unknown"
+    }
+  }
+]

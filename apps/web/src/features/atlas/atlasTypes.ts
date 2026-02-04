@@ -21,6 +21,13 @@ export type RepoNode = AtlasNodeBase & {
   type: "repo";
   systemId: string;
   owner?: string;
+
+  ownership?: {
+    teams: string[];
+    users: string[];
+    source: "codeowners" | "unknown";
+  };
+
   maturity?: "experimental" | "beta" | "stable" | "deprecated";
   reusable?: boolean;
 };
