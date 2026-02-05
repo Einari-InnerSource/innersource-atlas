@@ -19,7 +19,6 @@ async function main() {
 
   console.log(`Found ${repos.length} repos`);
 
-  // Pick a couple to test
   const pick = repos.slice(0, 3);
 
   for (const r of pick) {

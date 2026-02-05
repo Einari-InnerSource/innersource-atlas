@@ -1,9 +1,9 @@
 import { GitHubClient, GitHubError } from "./github-client";
 
 export type RepoRef = {
-  owner: string; // "backstage"
-  repo: string; // "backstage"
-  ref?: string; // branch/tag/sha optional
+  owner: string;
+  repo: string;
+  ref?: string;
 };
 
 export type RepoTextFiles = {
@@ -36,8 +36,6 @@ export async function fetchReadme(
   client: GitHubClient,
   ref: RepoRef,
 ): Promise<string | null> {
-  // GitHub has a dedicated README endpoint which handles README.md/README.rst/etc.
-  // This returns "contents" style; we ask for raw via Accept header.
   const q = ref.ref ? `?ref=${encodeURIComponent(ref.ref)}` : "";
   const path = `/repos/${encodeURIComponent(ref.owner)}/${encodeURIComponent(ref.repo)}/readme${q}`;
 

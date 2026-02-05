@@ -1,5 +1,3 @@
-// features/atlas/atlasTypes.ts
-
 export type AtlasNodeType = "domain" | "system" | "repo";
 
 export type AtlasNodeBase = {
