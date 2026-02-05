@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { AtlasGraph } from "./AtlasGraph";
 import { AtlasSidePanel } from "./AtlasSidePanel";
@@ -12,6 +12,17 @@ const RIGHT_PANEL_WIDTH = 380;
 
 export function AtlasShell() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedId(null);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   const profiles = repoProfiles as RepoProfile[];
 

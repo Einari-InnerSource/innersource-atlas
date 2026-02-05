@@ -97,8 +97,6 @@ function toReactFlowNodes(
       padding: "0 12px",
       fontSize: 14,
       cursor: "pointer",
-
-      // 🔽 the important part
       opacity: activeId ? (isNeighbour ? 1 : 0.25) : 1,
     };
 

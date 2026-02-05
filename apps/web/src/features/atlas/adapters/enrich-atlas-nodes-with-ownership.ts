@@ -13,7 +13,6 @@ export function enrichAtlasNodesWithOwnership(
 
     const repo = n as RepoNode;
 
-    // We need owner + name to join. If owner is missing, we can’t enrich.
     if (!repo.owner) return repo;
 
     const key = `${repo.owner}/${repo.name}`;
@@ -21,7 +20,6 @@ export function enrichAtlasNodesWithOwnership(
 
     if (!ownership) return repo;
 
-    // Minimal heuristic for now: has CODEOWNERS => reusable
     const reusable = ownership.source === "codeowners";
 
     return {
