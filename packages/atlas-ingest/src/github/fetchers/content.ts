@@ -1,10 +1,5 @@
-import { GitHubClient, GitHubError } from "./github-client";
-
-export type RepoRef = {
-  owner: string;
-  repo: string;
-  ref?: string;
-};
+import { GitHubClient, GitHubError } from "../github-client";
+import { RepoRef } from "../types/repo-ref";
 
 export type RepoTextFiles = {
   readme: string | null;
@@ -32,7 +27,7 @@ export async function fetchRepoTextFiles(
   return { readme, codeowners };
 }
 
-export async function fetchReadme(
+async function fetchReadme(
   client: GitHubClient,
   ref: RepoRef,
 ): Promise<string | null> {
@@ -48,7 +43,7 @@ export async function fetchReadme(
   }
 }
 
-export async function fetchCodeowners(
+async function fetchCodeowners(
   client: GitHubClient,
   ref: RepoRef,
 ): Promise<{ path: string | null; text: string | null }> {

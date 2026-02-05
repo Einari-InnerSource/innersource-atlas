@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 import { GitHubClient } from "./github/github-client";
 import { listOrgRepos } from "./github/repos";
-import { fetchRepoTextFiles } from "./github/content";
+import { fetchRepoTextFiles, fetchRepoLanguageNames } from "./github";
 import { buildRepoProfile } from "./build-repo-profile";
 
 const ORG = "backstage";
@@ -40,11 +40,13 @@ async function main() {
     const [owner, repo] = r.full_name.split("/");
 
     const files = await fetchRepoTextFiles(client, { owner, repo });
+    const languages = await fetchRepoLanguageNames(client, { owner, repo });
 
     const profile = buildRepoProfile({
       owner,
       repo,
       files,
+      languages,
     });
 
     profiles.push(profile);

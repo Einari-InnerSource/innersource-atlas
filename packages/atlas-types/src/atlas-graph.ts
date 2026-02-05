@@ -16,11 +16,15 @@ export interface TeamNode extends AtlasNodeBase {
   type: "team";
 }
 
-export type AtlasNode = RepoNode | TeamNode;
+export interface LanguageNode extends AtlasNodeBase {
+  type: "language";
+}
+
+export type AtlasNode = RepoNode | TeamNode | LanguageNode;
 
 export interface AtlasEdge {
   id: string;
   source: string;
   target: string;
-  type: "owns";
+  type: "owns" | "uses"; // owns: team -> repo, uses: language -> repo
 }

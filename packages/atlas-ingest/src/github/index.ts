@@ -1,3 +1,4 @@
 export * from "./github-client";
 export * from "./repos";
-export * from "./content";
+export * from "./fetchers/content";
+export * from "./fetchers/languages";

@@ -5,10 +5,16 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/techdocs-core"],
+      "teams": [
+        "backstage/techdocs-core"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "owner": "backstage",
@@ -39,9 +45,28 @@
         "backstage/scaffolder-maintainers",
         "backstage/auditor-maintainers"
       ],
-      "users": ["backstage-service", "pjungermann", "awanlin"],
+      "users": [
+        "backstage-service",
+        "pjungermann",
+        "awanlin"
+      ],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "CSS",
+      "MDX",
+      "JavaScript",
+      "Handlebars",
+      "Mustache",
+      "SCSS",
+      "Dockerfile",
+      "HTML",
+      "Shell",
+      "Makefile",
+      "HCL",
+      "PowerShell"
+    ]
   },
   {
     "owner": "backstage",
@@ -49,10 +74,18 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/techdocs-maintainers"],
-      "users": ["awanlin"],
+      "teams": [
+        "backstage/techdocs-maintainers"
+      ],
+      "users": [
+        "awanlin"
+      ],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "Python",
+      "Shell"
+    ]
   },
   {
     "owner": "backstage",
@@ -60,10 +93,21 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/operations-maintainers"],
-      "users": ["MihaiTabara"],
+      "teams": [
+        "backstage/operations-maintainers"
+      ],
+      "users": [
+        "MihaiTabara"
+      ],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "JavaScript",
+      "Dockerfile",
+      "CSS"
+    ]
   },
   {
     "owner": "backstage",
@@ -71,10 +115,18 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/techdocs-core"],
+      "teams": [
+        "backstage/techdocs-core"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "JavaScript",
+      "Shell"
+    ]
   },
   {
     "owner": "backstage",
@@ -82,10 +134,15 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/techdocs-core"],
+      "teams": [
+        "backstage/techdocs-core"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "Dockerfile"
+    ]
   },
   {
     "owner": "backstage",
@@ -99,7 +156,10 @@
       ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -107,10 +167,22 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/reviewers"],
+      "teams": [
+        "backstage/reviewers"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "Java",
+      "CSS",
+      "JavaScript",
+      "Dockerfile",
+      "Ruby",
+      "Shell"
+    ]
   },
   {
     "owner": "backstage",
@@ -121,7 +193,12 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "HTML",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -132,7 +209,12 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "Go",
+      "TypeScript",
+      "Dockerfile"
+    ]
   },
   {
     "owner": "backstage",
@@ -143,7 +225,11 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -151,10 +237,19 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/operations-maintainers"],
+      "teams": [
+        "backstage/operations-maintainers"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Dockerfile"
+    ]
   },
   {
     "owner": "backstage",
@@ -165,7 +260,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -176,7 +274,8 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": []
   },
   {
     "owner": "backstage",
@@ -187,7 +286,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -198,7 +300,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -209,7 +314,11 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -217,10 +326,17 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/reviewers", "backstage/techdocs"],
+      "teams": [
+        "backstage/reviewers",
+        "backstage/techdocs"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -228,10 +344,16 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/helm-charts"],
+      "teams": [
+        "backstage/helm-charts"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "Go Template",
+      "Python"
+    ]
   },
   {
     "owner": "backstage",
@@ -242,7 +364,12 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -253,7 +380,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -261,10 +391,18 @@
     "hasReadme": true,
     "hasCodeowners": true,
     "ownership": {
-      "teams": ["backstage/sharks"],
+      "teams": [
+        "backstage/sharks"
+      ],
       "users": [],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "Dockerfile",
+      "JavaScript",
+      "Shell"
+    ]
   },
   {
     "owner": "backstage",
@@ -358,7 +496,16 @@
         "johannes-kirchner"
       ],
       "source": "codeowners"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "Shell",
+      "CSS",
+      "Handlebars",
+      "Dockerfile"
+    ]
   },
   {
     "owner": "backstage",
@@ -369,7 +516,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -380,7 +530,12 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "TypeScript",
+      "JavaScript",
+      "HTML"
+    ]
   },
   {
     "owner": "backstage",
@@ -391,7 +546,11 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "HTML",
+      "JavaScript"
+    ]
   },
   {
     "owner": "backstage",
@@ -402,7 +561,10 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "Python"
+    ]
   },
   {
     "owner": "backstage",
@@ -413,6 +575,9 @@
       "teams": [],
       "users": [],
       "source": "unknown"
-    }
+    },
+    "languages": [
+      "HTML"
+    ]
   }
 ]

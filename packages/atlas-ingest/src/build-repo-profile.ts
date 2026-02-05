@@ -1,11 +1,12 @@
 import { parseCodeowners } from "./ownership/parse-codeowners";
 import type { RepoProfile } from "@innersource-atlas/types";
-import type { RepoTextFiles } from "./github/content";
+import type { RepoTextFiles } from "./github/fetchers/content";
 
 export function buildRepoProfile(args: {
   owner: string;
   repo: string;
   files: RepoTextFiles;
+  languages: string[];
 }): RepoProfile {
   const ownership = parseCodeowners(args.files.codeowners.text);
 
@@ -24,5 +25,6 @@ export function buildRepoProfile(args: {
           ? "codeowners"
           : "unknown",
     },
+    languages: args.languages,
   };
 }

@@ -3,6 +3,7 @@ import type {
   AtlasEdge,
   AtlasGraph,
   AtlasNode,
+  RepoProfile,
 } from "@innersource-atlas/types";
 import type { RepoOwnership } from "../adapters/create-owner-map";
 
@@ -10,10 +11,12 @@ export function AtlasSidePanel({
   node,
   graph,
   ownerMap,
+  repoById,
 }: {
   node: AtlasNode | null;
   graph: AtlasGraph;
   ownerMap: Record<string, RepoOwnership>;
+  repoById: Record<string, RepoProfile>;
 }) {
   const ownsCount =
     node?.type === "team"
@@ -25,6 +28,7 @@ export function AtlasSidePanel({
   const hasOwners =
     ownership && (ownership.teams.length > 0 || ownership.users.length > 0);
 
+  const repo = node?.type === "repo" ? repoById[node.id] : null;
   return (
     <Box sx={{ p: 2 }}>
       <Typography variant="h6" sx={{ mb: 1 }}>
@@ -90,10 +94,10 @@ export function AtlasSidePanel({
       )}
 
       <Divider sx={{ my: 2 }} />
-
-      <Typography variant="subtitle2">Status</Typography>
+      
+      <Typography variant="subtitle2">Languages</Typography>
       <Typography variant="body2" color="text.secondary">
-        —
+        {repo?.languages?.length ? repo.languages.join(", ") : "—"}
       </Typography>
     </Box>
   );

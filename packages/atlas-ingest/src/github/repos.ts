@@ -1,13 +1,13 @@
 import { GitHubClient } from "./github-client";
 
-export type ListReposOptions = {
+export interface ListReposOptions {
   org: string; // "backstage"
   type?: "all" | "public" | "private" | "forks" | "sources" | "member";
   perPage?: number; // max 100
   maxPages?: number; // safety cap
-};
+}
 
-export type GitHubRepo = {
+export interface GitHubRepo {
   id: number;
   name: string;
   full_name: string;
@@ -18,7 +18,7 @@ export type GitHubRepo = {
   html_url: string;
   pushed_at: string | null;
   updated_at: string;
-};
+}
 
 export async function listOrgRepos(
   client: GitHubClient,

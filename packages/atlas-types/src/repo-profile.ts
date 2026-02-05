@@ -9,4 +9,5 @@ export interface RepoProfile {
     users: string[];
     source: "codeowners" | "unknown";
   };
+  languages: string[];
 }
