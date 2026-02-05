@@ -6,7 +6,7 @@ import ReactFlow, {
   type NodeMouseHandler,
 } from "reactflow";
 import "reactflow/dist/style.css";
-import { useMemo } from "react";
+import { useMemo, useState, type Dispatch, type SetStateAction } from "react";
 import type {
   AtlasGraph as AtlasGraphModel,
   AtlasNode,
@@ -16,7 +16,7 @@ import type {
 export type AtlasGraphProps = {
   graph: AtlasGraphModel;
   selectedId: string | null;
-  onSelect: (nodeId: string) => void;
+  onSelect: Dispatch<SetStateAction<string | null>>;
 };
 
 const NODE_W = 220;
@@ -40,23 +40,50 @@ function layoutNodes(
   return pos;
 }
 
-function toReactFlowEdges(edges: AtlasEdge[]): Edge[] {
-  return edges.map((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    animated: false,
-  }));
+function toReactFlowEdges(
+  edges: AtlasEdge[],
+  activeId?: string | null,
+): Edge[] {
+  return edges.map((e) => {
+    const isConnected =
+      activeId && (e.source === activeId || e.target === activeId);
+
+    return {
+      id: e.id,
+      source: e.source,
+      target: e.target,
+      animated: false,
+      style: {
+        strokeOpacity: activeId ? (isConnected ? 1 : 0.15) : 0.25,
+      },
+    };
+  });
 }
 
+function connectedNodeIds(edges: AtlasEdge[], activeId: string): Set<string> {
+  const s = new Set<string>([activeId]);
+
+  for (const e of edges) {
+    if (e.source === activeId) s.add(e.target);
+    if (e.target === activeId) s.add(e.source);
+  }
+
+  return s;
+}
 function toReactFlowNodes(
   items: AtlasNode[],
+  edges: AtlasEdge[],
   selectedId?: string | null,
+  activeId?: string | null,
 ): Node[] {
   const positions = layoutNodes(items);
 
+  const connected = activeId ? connectedNodeIds(edges, activeId) : null;
+
   return items.map((n) => {
     const isSelected = n.id === selectedId;
+    const isActive = activeId && n.id === activeId;
+    const isNeighbour = connected ? connected.has(n.id) : true;
 
     const baseStyle: React.CSSProperties = {
       width: NODE_W,
@@ -70,6 +97,9 @@ function toReactFlowNodes(
       padding: "0 12px",
       fontSize: 14,
       cursor: "pointer",
+
+      // 🔽 the important part
+      opacity: activeId ? (isNeighbour ? 1 : 0.25) : 1,
     };
 
     const typeBadge = n.type === "team" ? "TEAM" : "REPO";
@@ -108,14 +138,21 @@ function toReactFlowNodes(
 }
 
 export function AtlasGraph({ graph, selectedId, onSelect }: AtlasGraphProps) {
-  const rfNodes = useMemo(
-    () => toReactFlowNodes(graph.nodes, selectedId),
-    [graph.nodes, selectedId],
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const activeId = selectedId ?? hoveredId;
+
+  const rfEdges = useMemo(
+    () => toReactFlowEdges(graph.edges, activeId),
+    [graph.edges, activeId],
   );
-  const rfEdges = useMemo(() => toReactFlowEdges(graph.edges), [graph.edges]);
+
+  const rfNodes = useMemo(
+    () => toReactFlowNodes(graph.nodes, graph.edges, selectedId, activeId),
+    [graph.nodes, graph.edges, selectedId, activeId],
+  );
 
   const onNodeClick: NodeMouseHandler = (_, node) => {
-    onSelect(node.id);
+    onSelect((prev) => (prev === node.id ? null : node.id));
   };
 
   return (
@@ -123,7 +160,10 @@ export function AtlasGraph({ graph, selectedId, onSelect }: AtlasGraphProps) {
       <ReactFlow
         nodes={rfNodes}
         edges={rfEdges}
+        onPaneClick={() => onSelect(null)}
         onNodeClick={onNodeClick}
+        onNodeMouseEnter={(_, node) => setHoveredId(node.id)}
+        onNodeMouseLeave={() => setHoveredId(null)}
         fitView
         fitViewOptions={{ padding: 0.2 }}
         nodesDraggable={false}
